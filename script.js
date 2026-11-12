@@ -386,15 +386,12 @@ document.querySelector("#clear-button").addEventListener(
 
 // Sample selection
 sampleSelect.addEventListener("change", function () {
-  if (sampleSelect.value === "") {
-    input.value = "";
+  input.value = sampleSelect.value === ""
+    ? ""
+    : SAMPLES[sampleSelect.value];
 
-    resetResults();
-    input.focus();
-  } else {
-    input.value = SAMPLES[sampleSelect.value];
-    analyzeInput();
-  }
+  resetResults();
+  input.focus();
 });
 
 // Editing changes the selection to Custom record.
@@ -450,4 +447,4 @@ for (const field of FIELDS) {
 input.value = SAMPLES.esguerra;
 sampleSelect.value = "esguerra";
 
-analyzeInput();
+analyzeResults();
