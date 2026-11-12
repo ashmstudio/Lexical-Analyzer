@@ -387,7 +387,7 @@ document.querySelector("#clear-button").addEventListener(
 // Sample selection
 sampleSelect.addEventListener("change", function () {
   if (sampleSelect.value === "") {
-    input.value = customDraft;
+    input.value = "";
 
     resetResults();
     input.focus();
