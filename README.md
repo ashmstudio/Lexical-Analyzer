@@ -100,6 +100,19 @@ The analyzer highlights the error:
 
 Positions are character offsets starting at zero. For invalid values, the token-type column shows the expected type.
 
+## Main Token Types
+
+| Token type | Meaning | Example |
+| --- | --- | --- |
+| KEYWORD | A field label | COURSE |
+| STUDENT_ID | A seven-digit student ID | 2026003 |
+| COURSE_CODE | A course abbreviation | BSCS |
+| SUBJECT_CODE | A subject code | CS101 |
+| GRADE_VALUE | A whole-number grade | 95 |
+| EMAIL_ADDRESS | An email address | student@school.edu |
+
+Invalid values remain visible in the results table with their expected token type and a short correction message.
+
 ## Analyzer Logic
 
 The program separates the source text into lexemes while keeping their original positions. Field labels become `KEYWORD` tokens. Values are checked against their field rules.
