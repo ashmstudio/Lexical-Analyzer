@@ -300,7 +300,7 @@ function analyzeInput() {
         entry.type === "KEYWORD" ||
         entry.type === "SEPARATOR";
 
-      resultCell.textContent = isLabel ? "—" : "Valid";
+      resultCell.textContent = isLabel ? "Recognized" : "Valid";
 
       resultCell.className = isLabel
         ? "keyword-result"
