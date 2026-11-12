@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+
+  <title>Student Record Analyzer</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="header-inner">
+      <span class="brand">LEXICAL ANALYZER</span>
+
+      <button id="rules-button" class="rules-button" type="button">
+        Field rules
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <h1>Student record analyzer</h1>
+      <p>Check a record and inspect its tokens.</p>
+    </div>
+
+    <div class="workspace">
+      <section class="panel editor" aria-labelledby="input-title">
+        <div class="panel-heading">
+          <h2 id="input-title">Student record</h2>
+
+          <div class="sample-picker">
+            <label for="sample-select" class="sr-only">
+              Choose a record
+            </label>
+
+            <select id="sample-select">
+              <option value="">Custom record</option>
+              <option value="esguerra">Esguerra’s record</option>
+              <option value="muso">Muso’s record</option>
+              <option value="maria">Maria’s record</option>
+              <option value="judex">Judex’s record</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="source-input" class="sr-only">
+          Student record text
+        </label>
+
+        <textarea
+          id="source-input"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off"
+          aria-describedby="input-help"
+          placeholder="ID 2026003&#10;COURSE BSCS&#10;SUBJECT CS101&#10;GRADES 95&#10;EMAIL student@school.edu"
+        ></textarea>
+
+        <p id="input-help" class="help">
+          Required order: ID, COURSE, SUBJECT, GRADES, EMAIL.
+        </p>
+
+        <div class="actions">
+          <button id="analyze-button" class="primary" type="button">
+            Analyze record
+          </button>
+
+          <button id="clear-button" class="secondary" type="button">
+            Clear
+          </button>
+        </div>
+      </section>
+
+      <section class="panel output" aria-labelledby="output-title">
+        <div class="panel-heading">
+          <h2 id="output-title">Analysis output</h2>
+
+          <span id="result-badge" class="badge" data-state="idle">
+            Ready
+          </span>
+        </div>
+
+        <p
+          id="result-message"
+          class="result-message"
+          role="status"
+          aria-live="polite"
+        >
+          Select Analyze record to view the result.
+        </p>
+
+        <div
+          class="table-wrap"
+          tabindex="0"
+          aria-label="Analysis results"
+        >
+          <table class="token-table">
+            <caption class="sr-only">
+              Lexemes, character positions starting at zero,
+              token types and validation results
+            </caption>
+
+            <thead>
+              <tr>
+                <th
+                  scope="col"
+                  class="position-column"
+                  title="Character offset in the source text, beginning at 0"
+                >
+                  Position
+                </th>
+                <th scope="col">Lexeme</th>
+                <th scope="col">Token type</th>
+                <th scope="col">Result</th>
+              </tr>
+            </thead>
+
+            <tbody id="token-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Esguerra &amp; Muso</footer>
+
+  <dialog id="rules-dialog" aria-labelledby="rules-title">
+    <div class="panel-heading">
+      <h2 id="rules-title">Field rules</h2>
+
+      <button id="close-rules" class="secondary" type="button">
+        Close
+      </button>
+    </div>
+
+    <div class="rules-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Field</th>
+            <th scope="col">Requirement</th>
+            <th scope="col">Example</th>
+          </tr>
+        </thead>
+
+        <tbody id="rules-rows"></tbody>
+      </table>
+    </div>
+
+    <p class="help">
+      Course and subject codes are checked by format.
+      Email addresses are checked by format only.
+    </p>
+  </dialog>
+</body>
+</html>
