@@ -2,7 +2,13 @@
 
 A browser-based project built with HTML, CSS, and JavaScript. It reads a student record, identifies its tokens, and checks whether the five required fields follow their rules.
 
-Developed by **Judeah Claire B. Esguerra** and **Aisah C. Muso**, BSCS-3A.
+## Testing Checklist
+
+- Esguerra and Muso records should display Valid.
+- Maria's record should highlight b2cs as an invalid course.
+- Judex's record should show errors for ID, GRADES, and EMAIL.
+- Clicking an invalid value should select it in the editor.
+- Clear should empty the editor and results.
 
 ## Features
 
